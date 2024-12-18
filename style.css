@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+header {
+    background: #4a47a3;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.section h2 {
+    color: #4a47a3;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #4a47a3;
+    padding-bottom: 5px;
+}
+.list {
+    list-style: none;
+    padding: 0;
+}
+.list li {
+    margin-bottom: 10px;
+}
+.contact a {
+    color: #4a47a3;
+    text-decoration: none;
+}
+.contact a:hover {
+    text-decoration: underline;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.skill {
+    background: #4a47a3;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+footer {
+    background: #4a47a3;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+footer p {
+    margin: 0;
+}
