@@ -16,9 +16,10 @@ document.querySelectorAll('.list li').forEach(item => {
             arrow.textContent = description.classList.contains('hidden') ? '▼' : '▲';
             if (!description.classList.contains('hidden')) {
                 description.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the description
+                touchEnabled = false; // Disable touch events
                 setTimeout(() => {
-                    window.scrollBy(0, -50); // Adjust the scroll position to ensure the text is fully visible
-                }, 500); // Delay to allow the transition to complete
+                    touchEnabled = true; // Re-enable touch events after 1 second
+                }, 1000);
             }
         }
     });
@@ -77,20 +78,36 @@ window.addEventListener('resize', updateCarousel);
 
 let startX = 0;
 let endX = 0;
+const edgeThreshold = 50; // Define a threshold for edge detection
+let touchEnabled = true; // Flag to enable/disable touch events
 
 carousel.addEventListener('touchstart', (event) => {
-    startX = event.touches[0].clientX;
+    if (touchEnabled) {
+        startX = event.touches[0].clientX;
+    }
 });
 
 carousel.addEventListener('touchmove', (event) => {
-    endX = event.touches[0].clientX;
+    if (touchEnabled) {
+        endX = event.touches[0].clientX;
+    }
 });
 
-carousel.addEventListener('touchend', () => {
-    if (startX > endX + 50 && currentIndex < sections.length - 1) {
-        currentIndex++;
-    } else if (startX < endX - 50 && currentIndex > 0) {
-        currentIndex--;
+carousel.addEventListener('touchend', (event) => {
+    if (touchEnabled) {
+        const touchDistance = startX - endX;
+        const target = event.target;
+
+        // Check if the touch event is on a description element
+        if (!target.closest('.description')) {
+            if (Math.abs(touchDistance) > edgeThreshold) {
+                if (touchDistance > 0 && currentIndex < sections.length - 1) {
+                    currentIndex++;
+                } else if (touchDistance < 0 && currentIndex > 0) {
+                    currentIndex--;
+                }
+                updateCarousel();
+            }
+        }
     }
-    updateCarousel();
 });
