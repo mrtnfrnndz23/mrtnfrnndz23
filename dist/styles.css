@@ -623,6 +623,7 @@ header h1 {
 .section {
   margin: 20px 0;
   padding: 20px;
+  padding-left: 46px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -687,8 +688,8 @@ footer p {
 }
 
 .description {
-  transition: max-height 2s ease-out, opacity 2s ease-out;
-  /* Slower transition */
+  transition: max-height 1s ease-out, opacity 1s ease-out;
+  /* Faster transition */
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -749,20 +750,22 @@ footer p {
 
 .carousel-button {
   position: absolute;
-  top: 5%;
+  top: 40%;
   /* Adjusted from 50% to 40% */
   transform: translateY(-40%);
   /* Adjusted from -50% to -40% */
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
-  padding: 5px;
+  padding: 7px;
   /* Adjusted from 10px to 5px */
   cursor: pointer;
   z-index: 10;
   /* Ensure buttons are above other elements */
-  transition: background 0.3s ease;
-  /* Smooth background transition */
+  transition: background 0.3s ease, opacity 0.3s ease;
+  /* Smooth background and opacity transition */
+  opacity: 0.5;
+  /* Slightly visible */
 }
 
 .carousel-button:hover {
@@ -770,6 +773,8 @@ footer p {
   /* Darker background on hover */
   animation: twinkle 0.5s infinite alternate;
   /* Twinkling animation */
+  opacity: 1;
+  /* Fully opaque on hover */
 }
 
 @keyframes twinkle {

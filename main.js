@@ -21,6 +21,12 @@ document.querySelectorAll('.list li').forEach(item => {
     });
 });
 
+document.querySelectorAll('.section').forEach(section => {
+    section.addEventListener('click', () => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the section
+    });
+});
+
 const carousel = document.querySelector('.carousel');
 const sections = document.querySelectorAll('.section');
 const prevButton = document.querySelector('.carousel-button.left');
