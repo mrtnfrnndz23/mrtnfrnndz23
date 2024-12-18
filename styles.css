@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+header {
+    background: #4a47a3;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 100%; /* Ensure each section takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+.section h2 {
+    color: #4a47a3;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #4a47a3;
+    padding-bottom: 5px;
+}
+.list {
+    list-style: none;
+    padding: 0;
+}
+.list li {
+    margin-bottom: 10px;
+}
+.contact a {
+    color: #4a47a3;
+    text-decoration: none;
+}
+.contact a:hover {
+    text-decoration: underline;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.skill {
+    background: #4a47a3;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+footer {
+    background: #4a47a3;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+footer p {
+    margin: 0;
+}
+
+.description {
+    transition: max-height 1s ease-out, opacity 1s ease-out; /* Faster transition */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+.description.hidden {
+    max-height: 0;
+    opacity: 0;
+}
+.description:not(.hidden) {
+    max-height: 1000px; /* Adjust as needed */
+    opacity: 1;
+}
+
+.skill-box {
+    display: inline-block;
+    background: #4a47a3;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    cursor: pointer; /* Make it look like a button */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.skill-box:hover {
+    background: #3a3793; /* Darker background on hover */
+}
+
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Ensure the container takes full width */
+    margin-top: 20px; /* Add some space above the carousel */
+    border-radius: 10px; /* Rounded corners for a professional look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure the carousel takes full width */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Ensure buttons are above other elements */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+    animation: twinkle 0.5s infinite alternate; /* Twinkling animation */
+}
+
+@keyframes twinkle {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+    100% {
+        transform: translateY(-50%) scale(1.1);
+    }
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
