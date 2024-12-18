@@ -16,6 +16,26 @@ header {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure positioning context for pseudo-element */
+
+    /* Pseudo-element for background image */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../Resources/cv foto.JPG');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1; /* Make the background almost transparent */
+        z-index: 1; /* Ensure it is behind the text */
+    }
+
+    /* Ensure text is above the background image */
+    z-index: 2;
 }
 header h1 {
     margin: 0;
