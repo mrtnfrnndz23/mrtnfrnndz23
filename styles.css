@@ -131,12 +131,12 @@ footer p {
 
 .carousel-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 5%; /* Adjusted from 50% to 40% */
+    transform: translateY(-40%); /* Adjusted from -50% to -40% */
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 5px; /* Adjusted from 10px to 5px */
     cursor: pointer;
     z-index: 10; /* Ensure buttons are above other elements */
     transition: background 0.3s ease; /* Smooth background transition */

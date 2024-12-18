@@ -687,8 +687,8 @@ footer p {
 }
 
 .description {
-  transition: max-height 1s ease-out, opacity 1s ease-out;
-  /* Faster transition */
+  transition: max-height 2s ease-out, opacity 2s ease-out;
+  /* Slower transition */
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -749,12 +749,15 @@ footer p {
 
 .carousel-button {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 5%;
+  /* Adjusted from 50% to 40% */
+  transform: translateY(-40%);
+  /* Adjusted from -50% to -40% */
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
-  padding: 10px;
+  padding: 5px;
+  /* Adjusted from 10px to 5px */
   cursor: pointer;
   z-index: 10;
   /* Ensure buttons are above other elements */

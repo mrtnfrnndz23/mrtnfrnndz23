@@ -14,6 +14,9 @@ document.querySelectorAll('.list li').forEach(item => {
         if (description) {
             description.classList.toggle('hidden');
             arrow.textContent = description.classList.contains('hidden') ? '▼' : '▲';
+            if (!description.classList.contains('hidden')) {
+                description.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the description
+            }
         }
     });
 });
@@ -49,5 +52,16 @@ nextButton.addEventListener('click', () => {
         updateCarousel();
     }
 });
+
+function handleScroll(event) {
+    if (event.deltaY > 0 && currentIndex < sections.length - 1) {
+        currentIndex++;
+    } else if (event.deltaY < 0 && currentIndex > 0) {
+        currentIndex--;
+    }
+    updateCarousel();
+}
+
+carousel.addEventListener('wheel', handleScroll);
 
 window.addEventListener('resize', updateCarousel);
