@@ -188,28 +188,3 @@ footer p {
 .carousel-button.right {
     right: 10px;
 }
-
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 0 10px; /* Add padding to the container */
-    }
-
-    .section {
-        padding: 10px; /* Reduce padding for sections */
-        min-width: 100%; /* Ensure each section takes full width */
-    }
-
-    header img {
-        width: 100px; /* Reduce image size */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    header h1 {
-        font-size: 1.5em; /* Reduce font size */
-    }
-
-    .carousel-button {
-        padding: 5px; /* Adjust button padding */
-    }
-}
