@@ -16,6 +16,9 @@ document.querySelectorAll('.list li').forEach(item => {
             arrow.textContent = description.classList.contains('hidden') ? '▼' : '▲';
             if (!description.classList.contains('hidden')) {
                 description.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the description
+                setTimeout(() => {
+                    window.scrollBy(0, -50); // Adjust the scroll position to ensure the text is fully visible
+                }, 500); // Delay to allow the transition to complete
             }
         }
     });
