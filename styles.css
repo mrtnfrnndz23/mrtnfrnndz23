@@ -142,12 +142,14 @@ footer p {
     margin-top: 20px; /* Add some space above the carousel */
     border-radius: 10px; /* Rounded corners for a professional look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    touch-action: pan-y; /* Allow vertical scrolling */
 }
 
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%; /* Ensure the carousel takes full width */
+    touch-action: pan-x; /* Allow horizontal scrolling */
 }
 
 .carousel-button {
@@ -185,4 +187,29 @@ footer p {
 
 .carousel-button.right {
     right: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 10px; /* Add padding to the container */
+    }
+
+    .section {
+        padding: 10px; /* Reduce padding for sections */
+        min-width: 100%; /* Ensure each section takes full width */
+    }
+
+    header img {
+        width: 100px; /* Reduce image size */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    header h1 {
+        font-size: 1.5em; /* Reduce font size */
+    }
+
+    .carousel-button {
+        padding: 5px; /* Adjust button padding */
+    }
 }

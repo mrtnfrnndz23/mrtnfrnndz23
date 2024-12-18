@@ -71,3 +71,23 @@ function handleScroll(event) {
 carousel.addEventListener('wheel', handleScroll);
 
 window.addEventListener('resize', updateCarousel);
+
+let startX = 0;
+let endX = 0;
+
+carousel.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX;
+});
+
+carousel.addEventListener('touchmove', (event) => {
+    endX = event.touches[0].clientX;
+});
+
+carousel.addEventListener('touchend', () => {
+    if (startX > endX + 50 && currentIndex < sections.length - 1) {
+        currentIndex++;
+    } else if (startX < endX - 50 && currentIndex > 0) {
+        currentIndex--;
+    }
+    updateCarousel();
+});
