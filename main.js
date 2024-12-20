@@ -7,21 +7,16 @@ document.querySelectorAll('.section').forEach(section => {
     });
 });
 
-document.querySelectorAll('.list li').forEach(item => {
-    item.addEventListener('click', () => {
-        const description = item.querySelector('.description');
-        const arrow = item.querySelector('.arrow');
-        if (description) {
-            description.classList.toggle('hidden');
-            arrow.textContent = description.classList.contains('hidden') ? '▼' : '▲';
-            if (!description.classList.contains('hidden')) {
-                description.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the description
-                touchEnabled = false; // Disable touch events
-                setTimeout(() => {
-                    touchEnabled = true; // Re-enable touch events after 1 second
-                }, 1000);
-            }
-        }
+// Replace existing code for toggling job descriptions
+document.querySelectorAll('.arrow').forEach(arrow => {
+    arrow.addEventListener('click', () => {
+        const description = arrow.nextElementSibling;
+        description.classList.toggle('hidden');
+        description.classList.toggle('max-h-0');
+        description.classList.toggle('opacity-0');
+        description.classList.toggle('max-h-full');
+        description.classList.toggle('opacity-100');
+        arrow.textContent = arrow.textContent === '▼' ? '▲' : '▼';
     });
 });
 

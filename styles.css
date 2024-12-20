@@ -68,6 +68,15 @@ header h1 {
     padding-bottom: 5px;
 }
 
+h3 {
+    color: #4a47a3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #4a47a3;
+    padding-bottom: 5px;
+}
+
 .list {
     list-style: none;
     padding: 0;
