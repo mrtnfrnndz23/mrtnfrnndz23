@@ -643,6 +643,10 @@ video {
   height: 14rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -672,8 +676,16 @@ video {
   list-style-type: none;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .rounded-full {
@@ -1023,7 +1035,12 @@ footer p {
 }
 
 .carousel-container {
-  display: flex;
+  display: block;
+  /* Change to block to stack sections vertically */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  height: 100vh;
+  /* Full viewport height */
   overflow: hidden;
   position: relative;
   width: 100%;

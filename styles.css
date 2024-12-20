@@ -159,7 +159,9 @@ footer p {
 }
 
 .carousel-container {
-    display: flex;
+    display: block; /* Change to block to stack sections vertically */
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 100vh; /* Full viewport height */
     overflow: hidden;
     position: relative;
     width: 100%; /* Ensure the container takes full width */

@@ -59,6 +59,7 @@ nextButton.addEventListener('click', () => {
 });
 
 function handleScroll(event) {
+    event.preventDefault(); // Prevent default scrolling behavior
     if (event.deltaY > 0 && currentIndex < sections.length - 1) {
         currentIndex++;
     } else if (event.deltaY < 0 && currentIndex > 0) {
@@ -67,38 +68,43 @@ function handleScroll(event) {
     updateCarousel();
 }
 
-carousel.addEventListener('wheel', handleScroll);
+carousel.addEventListener('wheel', handleScroll, { passive: false });
 
 window.addEventListener('resize', updateCarousel);
 
 let startX = 0;
+let startY = 0;
 let endX = 0;
+let endY = 0;
 const edgeThreshold = 50; // Define a threshold for edge detection
 let touchEnabled = true; // Flag to enable/disable touch events
 
 carousel.addEventListener('touchstart', (event) => {
     if (touchEnabled) {
         startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
     }
 });
 
 carousel.addEventListener('touchmove', (event) => {
     if (touchEnabled) {
         endX = event.touches[0].clientX;
+        endY = event.touches[0].clientY;
     }
 });
 
 carousel.addEventListener('touchend', (event) => {
     if (touchEnabled) {
-        const touchDistance = startX - endX;
+        const touchDistanceX = startX - endX;
+        const touchDistanceY = startY - endY;
         const target = event.target;
 
         // Check if the touch event is on a description element
         if (!target.closest('.description')) {
-            if (Math.abs(touchDistance) > edgeThreshold) {
-                if (touchDistance > 0 && currentIndex < sections.length - 1) {
+            if (Math.abs(touchDistanceX) > Math.abs(touchDistanceY) && Math.abs(touchDistanceX) > edgeThreshold) {
+                if (touchDistanceX > 0 && currentIndex < sections.length - 1) {
                     currentIndex++;
-                } else if (touchDistance < 0 && currentIndex > 0) {
+                } else if (touchDistanceX < 0 && currentIndex > 0) {
                     currentIndex--;
                 }
                 updateCarousel();
