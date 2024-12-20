@@ -9,7 +9,8 @@ document.querySelectorAll('.section').forEach(section => {
 
 // Replace existing code for toggling job descriptions
 document.querySelectorAll('.arrow').forEach(arrow => {
-    arrow.addEventListener('click', () => {
+    arrow.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the carousel from moving
         const description = arrow.nextElementSibling;
         description.classList.toggle('hidden');
         description.classList.toggle('max-h-0');
@@ -17,6 +18,11 @@ document.querySelectorAll('.arrow').forEach(arrow => {
         description.classList.toggle('max-h-full');
         description.classList.toggle('opacity-100');
         arrow.textContent = arrow.textContent === '▼' ? '▲' : '▼';
+        
+        // Scroll to the description to make it fully visible
+        if (!description.classList.contains('hidden')) {
+            description.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
     });
 });
 
@@ -101,7 +107,7 @@ carousel.addEventListener('touchend', (event) => {
 
         // Check if the touch event is on a description element
         if (!target.closest('.description')) {
-            if (Math.abs(touchDistanceX) > Math.abs(touchDistanceY) && Math.abs(touchDistanceX) > edgeThreshold) {
+            if (Math.abs(touchDistanceX) > edgeThreshold && Math.abs(touchDistanceX) > Math.abs(touchDistanceY)) {
                 if (touchDistanceX > 0 && currentIndex < sections.length - 1) {
                     currentIndex++;
                 } else if (touchDistanceX < 0 && currentIndex > 0) {

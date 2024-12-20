@@ -929,6 +929,10 @@ header h1 {
   /* Ensure each section takes full width */
   box-sizing: border-box;
   /* Include padding and border in the element's total width and height */
+  overflow-y: auto;
+  /* Enable vertical scrolling within sections */
+  max-height: calc(100vh - 40px);
+  /* Adjust height to fit within viewport */
 }
 
 .section h2 {
